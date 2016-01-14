@@ -1,0 +1,28 @@
+<section class="site-section site-section-light site-section-top themed-background-dark">
+    <div class="container">
+        <h1 class="text-center animation-slideDown"><i class="fa fa-trophy"></i> <strong>Menu Screen</strong></h1>
+        <h2 class="h3 text-center animation-slideUp"><strong>Weekly Menu</strong></h2>
+    </div>
+</section>
+<section class="site-content site-section animation-slideDown">
+    <div class="row">
+        <div class="col-xs-offset-2 col-xs-8">
+            <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+        </div>
+    </div>
+    <div class="row weekly-menu">
+        <div class="col-sm-1"></div>
+        <div class="col-xs-4 col-sm-2" ng-repeat="(key, value) in vm.meals">
+            <h3 class="push-bit menu-day"><strong>{{key | date:'EEEE'}}</strong></h3>
+            <div class="row portfolio">
+                <div class="col-xs-12 portfolio-item animation-fadeInQuick" ng-repeat="(key, value) in value">
+                    <a href="javascript:void(0);">
+                        <img src="{{value.image}}" alt="Image" class="img-responsive">
+                        <span class="portfolio-item-info"><strong>{{value.name}}</strong></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- end row -->
+</section>
